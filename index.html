@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Meliorate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container bg-white overflow-hidden rounded">
+        
+        <div class="row">
+            <div class="toolbar">
+                <div class="head">
+                    <input type="text" placeholder="filename" value="untitled">
+                <select >
+                    <option value="" selected="" hidden="" disabled="">File</option>"
+                    <option value="new">New file</option>
+                    <option value="txt">Save as txt </option>
+                    <option value="pdf">Save as pdf</option>
+                </select>
+                <select> 
+                    <option value="" selected="" hidden="" disabled="">Format</option>
+                    <option value="h1">Heading 1 </option>
+                    <option value="h2">Heading 2 </option>
+                    <option value="h3">Heading 3 </option>
+                    <option value="h4">Heading 4 </option>
+                    <option value="h5">Heading 5 </option>
+                    <option value="h6">Heading 6 </option>
+                    <option value="p">Paragraph  </option>
+                </select>
+
+                <select> 
+                    <option value="" selected="" hidden="" disabled="">Font size</option>
+                    <option value="h1">Extra small</option>
+                    <option value="h2">Small </option>
+                    <option value="h3">Regular </option>
+                    <option value="h4">Meduim </option>
+                    <option value="h5">Large </option>
+                    <option value="h6">Extra Large </option>
+                    <option value="p">Big </option>
+                </select>
+                <div class="color">
+                    <span>Color</span>
+                    <input type="color">
+                </div>
+                <div class="color" >
+                    <span>Background</span>
+                    <input type="color">
+                </div>
+                </div>
+                <div class="btn toolbar">
+                    <button> <i class="bi bi-arrow-counterclockwise"></i></button>
+                    <button> <i class="bi bi-arrow-clockwise"></i></button>
+                    <button> <i class="bi bi-type-bold"></i></button>
+                    <button> <i class="bi bi-type-underline"></i></button>
+                    <button> <i class="bi bi-type-italic"></i></button>
+                    <button> <i class="bi bi-type-strikethrough"></i></button>
+                    <button> <i class="bi bi-justify-left"></i></button>
+                    <button> <i class="bi bi-justify-right"></i></button>
+                    <button> <i class="bi bi-text-center"></i></button>
+                    <button> <i class="bi bi-text-left"></i></button>
+                    <button> <i class="bi bi-text-right"></i></button>
+                    <button> <i class="bi bi-list-ol"></i></button>
+                    <button> <i class="bi bi-list-ul"></i></i></button>
+                    <button> <i class="bi bi-link"></i></button>
+                    <button>&lt;/&gt;</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
