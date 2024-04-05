@@ -9,21 +9,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container bg-white overflow-hidden rounded">
+    <div class="container bg-white overflow-hidden rounded">    
         
-        <div class="row">
             <div class="toolbar">
                 <div class="head">
-                    <input type="text" placeholder="filename" value="untitled">
-                <select >
+                    <input id="filename" type="text" placeholder="filename" value="untitled">
+                <select onchange="fileHandle(this.value) ; this.selectedIndex=0">
                     <option value="" selected="" hidden="" disabled="">File</option>"
                     <option value="new">New file</option>
                     <option value="txt">Save as txt </option>
                     <option value="pdf">Save as pdf</option>
                 </select>
-                <select> 
-                    <option value="" selected="" hidden="" disabled="">Format</option>
-                    <option value="h1">Heading 1 </option>
+                    <select onchange="formatDoc('formatBlock', this.value); this.selectedIndex=0;">                     <option value="h1">Heading 1 </option>
                     <option value="h2">Heading 2 </option>
                     <option value="h3">Heading 3 </option>
                     <option value="h4">Heading 4 </option>
@@ -32,47 +29,50 @@
                     <option value="p">Paragraph  </option>
                 </select>
 
-                <select> 
+                <select onchange="formatDoc('fontSize', this.value); this.selectedIndex=0;"> 
                     <option value="" selected="" hidden="" disabled="">Font size</option>
-                    <option value="h1">Extra small</option>
-                    <option value="h2">Small </option>
-                    <option value="h3">Regular </option>
-                    <option value="h4">Meduim </option>
-                    <option value="h5">Large </option>
-                    <option value="h6">Extra Large </option>
-                    <option value="p">Big </option>
+                    <option value="1">Extra small</option>
+                    <option value="2">Small</option>
+                    <option value="3">Regular</option>
+                    <option value="4">Medium</option>
+                    <option value="5">Large</option>
+                    <option value="6">Extra Large</option>
+                    <option value="7">Big</option>
                 </select>
+                
                 <div class="color">
                     <span>Color</span>
-                    <input type="color">
+                    <input type="color" oninput="formatDoc('foreColor' , this.value) ; this.value='#000000' " >
                 </div>
                 <div class="color" >
                     <span>Background</span>
-                    <input type="color">
+                    <input type="color" oninput="formatDoc('hiliteColor', this.value) ; this.value='#000000' " >
                 </div>
                 </div>
-                <div class="btn toolbar">
-                    <button> <i class="bi bi-arrow-counterclockwise"></i></button>
-                    <button> <i class="bi bi-arrow-clockwise"></i></button>
-                    <button> <i class="bi bi-type-bold"></i></button>
-                    <button> <i class="bi bi-type-underline"></i></button>
-                    <button> <i class="bi bi-type-italic"></i></button>
-                    <button> <i class="bi bi-type-strikethrough"></i></button>
-                    <button> <i class="bi bi-justify-left"></i></button>
-                    <button> <i class="bi bi-justify-right"></i></button>
-                    <button> <i class="bi bi-text-center"></i></button>
-                    <button> <i class="bi bi-text-left"></i></button>
-                    <button> <i class="bi bi-text-right"></i></button>
-                    <button> <i class="bi bi-list-ol"></i></button>
-                    <button> <i class="bi bi-list-ul"></i></i></button>
-                    <button> <i class="bi bi-link"></i></button>
-                    <button>&lt;/&gt;</button>
+                <div class="btn-toolbar">
+                    <button onclick="formatDoc('undo')"> <i class="bi bi-arrow-counterclockwise"></i></button>
+                    <button onclick="formatDoc('redo')"> <i class="bi bi-arrow-clockwise"></i></button>
+                    <button onclick="formatDoc('bold')"> <i class="bi bi-type-bold"></i></button>
+                    <button onclick="formatDoc('underline')"> <i class="bi bi-type-underline"></i></button>
+                    <button onclick="formatDoc('italic')"> <i class="bi bi-type-italic"></i></button>
+                    <button onclick="formatDoc('strikeThrough')"> <i class="bi bi-type-strikethrough"></i></button>
+                    <button onclick="formatDoc('justifyLeft')"> <i class="bi bi-justify-left"></i></button>
+                    <button onclick="formatDoc('justifyCenter')"> <i class="bi bi-text-center"></i></button>
+                    <button onclick="formatDoc('justifyRight')"> <i class="bi bi-justify-right"></i></button>
+                    <button onclick="formatDoc('justifyFull')"> <i class="bi bi-text-left"></i></button>
+                    <button onclick="formatDoc('insertOrderedList')"> <i class="bi bi-list-ol"></i></button>
+                    <button onclick="formatDoc('insertUnorderedList')"> <i class="bi bi-list-ul"></i></i></button>
+                    <button onclick="addLink()"> <i class="bi bi-link"></i></button>
+                    <button onclick="formatDoc('unlink')" style="width: max-content; padding: 0 3px;"> Unlink</button>
+                    <button id="show-code" data-active="false">&lt;/&gt;</button>
                 </div>
             </div>
-        </div>
-        </div>
-    </div>
+            <div id="content" contenteditable="true" spellcheck="false">
 
+            </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
