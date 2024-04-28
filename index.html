@@ -9,6 +9,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <input id="Imagewidth" type="text" class="form-control" placeholder="Insert width" >                    
+                </div>
+                <div class="col-3">
+                    <select id="pixelorpercentWidth" class="form-select" aria-label="Default select example">
+                        <option value="px">Px</option>
+                        <option value="%">%</option>
+                        <option value="rem">rem</option>
+                        <option value="em">em</option>
+                      </select>
+            </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <input id="Imageheight" type="text" class="form-control" placeholder="Insert height" >                    
+                </div>
+                <div class="col-3">
+                    <select id="pixelorpercentHeight" class="form-select" aria-label="Default select example">
+                        <option value="px">Px</option>
+                        <option value="%">%</option>
+                        <option value="rem">rem</option>
+                        <option value="em">em</option>
+                      </select>
+            </div>
+            </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button onclick="imageHandle()" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     <div class="container bg-white overflow-hidden rounded">    
         
             <div class="toolbar">
@@ -46,12 +93,16 @@
                 </div>
                 <div class="color" >
                     <span>Background</span>
-                    <input type="color" oninput="formatDoc('hiliteColor', this.value) ; this.value='#000000' " >
+                    <input type="color"  oninput="formatDoc('hiliteColor', this.value) ; this.value='#000000' " >
                 </div>
                 </div>
                 <div class="btn-toolbar">
                     <button onclick="formatDoc('undo')"> <i class="bi bi-arrow-counterclockwise"></i></button>
                     <button onclick="formatDoc('redo')"> <i class="bi bi-arrow-clockwise"></i></button>
+                    <!-- Image File -->
+                    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+                    <label for="fileInput" class="image-icone" >  <i class="bi bi-file-image"></i> </label>
+                    <!-- Image File -->
                     <button onclick="formatDoc('bold')"> <i class="bi bi-type-bold"></i></button>
                     <button onclick="formatDoc('underline')"> <i class="bi bi-type-underline"></i></button>
                     <button onclick="formatDoc('italic')"> <i class="bi bi-type-italic"></i></button>
@@ -59,7 +110,6 @@
                     <button onclick="formatDoc('justifyLeft')"> <i class="bi bi-justify-left"></i></button>
                     <button onclick="formatDoc('justifyCenter')"> <i class="bi bi-text-center"></i></button>
                     <button onclick="formatDoc('justifyRight')"> <i class="bi bi-justify-right"></i></button>
-                    <button onclick="formatDoc('justifyFull')"> <i class="bi bi-text-left"></i></button>
                     <button onclick="formatDoc('insertOrderedList')"> <i class="bi bi-list-ol"></i></button>
                     <button onclick="formatDoc('insertUnorderedList')"> <i class="bi bi-list-ul"></i></i></button>
                     <button onclick="addLink()"> <i class="bi bi-link"></i></button>
@@ -68,9 +118,15 @@
                 </div>
             </div>
             <div id="content" contenteditable="true" spellcheck="false">
-
+       
             </div>
+            
+           
+            
+
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

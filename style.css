@@ -23,7 +23,8 @@ li{
 }
 .toolbar{
     padding: 16px;
-    background: #eee;
+    background: #eee
+
 }
 .toolbar .head {
     display: flex;
@@ -114,4 +115,17 @@ cursor {
 }
 #show-code[data-active ="false"] {
     background-color: #eee ;
+}
+.image-icone {
+    background-color: #fff;
+    max-width: 100px;
+    padding : 6px 10px; 
+    border-radius: 6px;
+    border-radius: 2px solid #ddd;
+    border: 2px solid #ddd;
+    outline: none;
+    cursor: pointer;
+}
+.image-icone:hover {
+    background-color: #f3f3f3;
 }

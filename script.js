@@ -43,27 +43,61 @@ function fileHandle (value) {
         content.innerHTML =''
         fileName.value ="untitled"
     } else if (value === 'txt') {
-      // Get the content from the appropriate element (change 'content' to the correct ID)
       const content = document.getElementById('content');
         
-      // Create a new blob with the content
       const contentBlob = new Blob([content.innerText], { type: 'text/plain' });
 
-      // Create a URL for the blob
       const url = URL.createObjectURL(contentBlob);
 
-      // Create a link element to trigger the download
       const link = document.createElement('a');
       link.href = url;
       link.download = fileName.value + '.txt';
 
-      // Simulate a click on the link to trigger the download
       link.click();
 
-      // Clean up by revoking the URL object
       URL.revokeObjectURL(url);
     } else if (value === 'pdf') {
-
         html2pdf().from(content).save(fileName.value );
     }
 }
+
+
+    const fileInput = document.getElementById('fileInput');
+    let image = null 
+
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            image = img; // Store the image element globally
+
+            $('#exampleModal').modal('show');
+            // let width = 
+            // let height = 
+            // img.style.width = width + '%';
+            // img.style.height = height +'%';
+            // content.appendChild(img);
+            // document.execCommand('insertImage', false, URL.createObjectURL(file));
+        }
+    
+    });
+    
+    function imageHandle() {
+        const imageWidth = document.getElementById('Imagewidth').value;
+        const imageHeight = document.getElementById('Imageheight').value;
+        const pixelorpercentWidth = document.getElementById('pixelorpercentWidth').value;
+        const pixelorpercentHeight = document.getElementById('pixelorpercentHeight').value;
+        console.log('Image Width: ' + imageWidth )
+        console.log('Image Height: ' + imageHeight)
+        console.log('Pixelor Percent Width: ' + pixelorpercentWidth)
+        console.log('Pixelor Percent Height: ' + pixelorpercentHeight)
+        if (image) {
+            image.style.width = imageWidth + pixelorpercentWidth;
+            image.style.height = imageHeight + pixelorpercentHeight;
+            content.appendChild(image); // Append image to modal body
+        }
+
+        $('#exampleModal').modal('hide');
+    }
+
