@@ -16,14 +16,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Image Configuration</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
             <div class="row">
                 <div class="col">
-                    <input id="Imagewidth" type="text" class="form-control" placeholder="Insert width" >                    
+                    <input id="Imagewidth" type="text" class="form-control" placeholder="Insert width" onchange="if(!/^\d+$/.test(this.value)) { this.classList.add('is-invalid'); } else {this.classList.remove('is-invalid');}">
                 </div>
                 <div class="col-3">
                     <select id="pixelorpercentWidth" class="form-select" aria-label="Default select example">
@@ -36,7 +36,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col">
-                    <input id="Imageheight" type="text" class="form-control" placeholder="Insert height" >                    
+                    <input id="Imageheight" type="text" class="form-control" placeholder="Insert height" onchange="if(!/^\d+$/.test(this.value)) { this.classList.add('is-invalid'); } else {this.classList.remove('is-invalid');}" >                    
                 </div>
                 <div class="col-3">
                     <select id="pixelorpercentHeight" class="form-select" aria-label="Default select example">
@@ -86,11 +86,14 @@
                     <option value="6">Extra Large</option>
                     <option value="7">Big</option>
                 </select>
-                
-                <div class="color">
-                    <span>Color</span>
-                    <input type="color" oninput="formatDoc('foreColor' , this.value) ; this.value='#000000' " >
-                </div>
+         <div class="color">
+            <span>Color</span>
+      
+            <input type="color" id="color-input"  onchange="formatDoc('foreColor', this.value); this.value = '#000000';">
+
+          </div>
+          
+                  
                 <div class="color" >
                     <span>Background</span>
                     <input type="color"  oninput="formatDoc('hiliteColor', this.value) ; this.value='#000000' " >

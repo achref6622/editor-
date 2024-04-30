@@ -63,7 +63,7 @@ function fileHandle (value) {
 
 
     const fileInput = document.getElementById('fileInput');
-    let image = null 
+    let image = null  // intialized image null 
 
     fileInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
@@ -73,31 +73,26 @@ function fileHandle (value) {
             image = img; // Store the image element globally
 
             $('#exampleModal').modal('show');
-            // let width = 
-            // let height = 
-            // img.style.width = width + '%';
-            // img.style.height = height +'%';
-            // content.appendChild(img);
-            // document.execCommand('insertImage', false, URL.createObjectURL(file));
         }
     
     });
-    
+    const digitRegex = /\d/;
     function imageHandle() {
-        const imageWidth = document.getElementById('Imagewidth').value;
-        const imageHeight = document.getElementById('Imageheight').value;
+  
+        const imageWidth = document.getElementById('Imagewidth');
+        const imageHeight = document.getElementById('Imageheight');
         const pixelorpercentWidth = document.getElementById('pixelorpercentWidth').value;
         const pixelorpercentHeight = document.getElementById('pixelorpercentHeight').value;
-        console.log('Image Width: ' + imageWidth )
-        console.log('Image Height: ' + imageHeight)
-        console.log('Pixelor Percent Width: ' + pixelorpercentWidth)
-        console.log('Pixelor Percent Height: ' + pixelorpercentHeight)
-        if (image) {
-            image.style.width = imageWidth + pixelorpercentWidth;
-            image.style.height = imageHeight + pixelorpercentHeight;
+        if (!digitRegex.test(imageWidth)|| !digitRegex.test(imageHeight)) {
+            alert('Please enter a valid number for width and height !! ')
+        }else {
+        if (image) {      
+            image.style.width = imageWidth.value + pixelorpercentWidth;
+            image.style.height = imageHeight.value + pixelorpercentHeight;
             content.appendChild(image); // Append image to modal body
         }
 
         $('#exampleModal').modal('hide');
+    }
     }
 

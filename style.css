@@ -128,4 +128,9 @@ cursor {
 }
 .image-icone:hover {
     background-color: #f3f3f3;
-}
+} 
+  input[type="color"]::-webkit-color-swatch {
+    background-image: url('images/color-icons-12533.png'); /* Replace with your custom icon */
+    background-size: cover;
+ 
+  }
